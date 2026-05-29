@@ -18,8 +18,8 @@ def hello_world():
 def ask():
     question = request.form.get("question")
     response = client.models.generate_content(
-        # model = "gemini-3.1-flash-lite",
-        model = "gemini-2.0-flash-lite",
+        model = "gemini-3.1-flash-lite",
+        # model = "gemini-2.0-flash-lite",
         contents=question,                   
         config=types.GenerateContentConfig(   
             system_instruction="Act like a helpful personal assistant. Give answers in a precise and meaningful way."
@@ -33,7 +33,7 @@ def summrize():
     email_text = request.form.get("email")
     summary_prompt = f"summarize the following email in 2-3 sentences {email_text}"
     response = client.models.generate_content(
-        model = "gemini-2.0-flash-lite",
+        model = "gemini-3.1-flash-lite",
         contents=summary_prompt,              
         config=types.GenerateContentConfig(
             system_instruction="Act like an expert email assistant. Give a summary in 2-3 brief bullet points."
